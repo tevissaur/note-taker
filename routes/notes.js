@@ -1,6 +1,7 @@
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid')
 const router = require('express').Router()
+const fs = require('fs')
 
 
 router.get('/notes', (req, res) => {
@@ -28,7 +29,12 @@ router.post('/notes', (req, res) => {
 })
 
 router.delete('/notes/:id', (req, res) => {
-    console.log(req.params)
+    const { id } = req.params
+    for (let i = 0; i < readFromFile; i++) {
+        
+    }
+    writeToFile('./db/db.json')
+    res.end()
 })
 
 
