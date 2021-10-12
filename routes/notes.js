@@ -22,9 +22,6 @@ app.post('/notes', (req, res) => {
             text,
             id: uuid()
         }
-        // fs.appendFile('./db/db.json', JSON.stringify(newNote), () => {
-        //     console.log(`${newNote.id} has been written to file.`)
-        // })
         readAndAppend(newNote, './db/db.json')
         res.json('Note added')
     } else {
@@ -38,10 +35,10 @@ app.delete('/notes/:id', (req, res) => {
         const db = JSON.parse(data)
         // console.log(id, db)
         const newDb = db.filter((value, index, array) => {
-            console.log(value, id)
+            // console.log(value, id)
             return value.id != id
         })
-        console.log(newDb)
+        // console.log(newDb)
         writeToFile('./db/db.json', newDb)
     })
     res.end()
